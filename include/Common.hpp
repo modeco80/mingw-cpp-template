@@ -22,14 +22,17 @@ namespace {
 		char* formatted = (char*)calloc(65535, sizeof(char));
         char* final_str = (char*)calloc(65535, sizeof(char));
 		
-		// do vargs formatting
+		// format the message buffer
 		va_start(val, format);
 		vsnprintf(formatted, 65509, format, val);
 		va_end(val);
 		
-		snprintf(final_str, 512, "*** Debug(%s:%d): %s ***", file, line, formatted);
+		// format the final string buffer
+		snprintf(final_str, 512, "*** Debug (%s:%d): %s ***\n", file, line, formatted);
 		free((char*) formatted);
-		puts(final_str);
+		
+		// TODO: We should possibly also log to a file.
+		WriteConsole(GetStdHandle(STD_OUTPUT_HANDLE), (void*)final_str, strlen(final_str), NULL, NULL);
 		free((char*) final_str);
 	}
 	#define DEBUGLOG(format, ...) DebugLog(__FILE__, __LINE__, format, ##__VA_ARGS__);
