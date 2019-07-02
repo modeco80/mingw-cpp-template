@@ -1,0 +1,16 @@
+#!/bin/bash
+# A simple lazy tool to build all configurations.
+# 
+# Usage:
+#
+# ./build <Target> <Configuration>
+
+error_trap() { 
+	echo "Error building this configuration";
+	exit 1;
+}
+
+./build x86 Release || error_trap;
+./build x86 Debug || error_trap;
+./build x64 Release || error_trap;
+./build x64 Debug || error_trap;

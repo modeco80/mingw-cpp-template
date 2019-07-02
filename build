@@ -1,0 +1,35 @@
+#!/bin/bash
+# A simple lazy build tool.
+# 
+# Usage:
+#
+# ./build <Target> <Configuration>
+#
+# Where: <Target> is: x86 or x64
+# and <Configuration> is Debug or Release
+
+MAKE='make';
+
+
+if [ "$OS" == "Windows_NT" ]; then
+	MAKE='mingw32-make';
+fi
+
+if [ "$1" == "x64" ]; then
+	if [ "$2" == "Debug" ]; then
+		shift 2;
+		$MAKE MINGW=x86_64-w64-mingw32- DEBUG=1 $*;
+	else
+		shift 2;
+		$MAKE MINGW=x86_64-w64-mingw32- $*;
+	fi
+else
+	if [ "$2" == "Debug" ]; then
+		shift 2;
+		$MAKE DEBUG=1 $*;
+	else
+		shift 2;
+		$MAKE $*;
+	fi
+fi
+

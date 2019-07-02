@@ -1,0 +1,24 @@
+1 VERSIONINFO
+FILEVERSION     1,0,0,0
+PRODUCTVERSION  1,0,0,0
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904E4"
+    BEGIN
+      VALUE "CompanyName", "modeco80"
+      VALUE "FileDescription", "MinGW C++ Template Application"
+      VALUE "FileVersion", "1.0.0.0"
+      VALUE "InternalName", "MinGW C++ Template Application"
+      VALUE "LegalCopyright", "modeco80"
+      VALUE "LegalTrademarks", "Copyright © 2019 modeco80."
+      VALUE "OriginalFilename", "mwsample.exe"
+      VALUE "ProductName", "MinGW C++ Template Application"
+      VALUE "ProductVersion", "1.0.0.0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x409, 1200
+  END
+END
